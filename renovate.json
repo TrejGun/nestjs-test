@@ -1,12 +1,4 @@
 {
   "extends": ["github>gemunion/renovate-config"],
-  "baseBranches": ["main"],
-  "timezone": "Asia/Singapore",
-  "schedule": ["after 4am", "before 5am"],
-  "packageRules": [
-    {
-      "updateTypes": ["minor", "patch"],
-      "automerge": true
-    }
-  ]
+  "baseBranches": ["main"]
 }
