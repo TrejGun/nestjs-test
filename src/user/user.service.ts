@@ -2,7 +2,7 @@ import { ConfigService } from "@nestjs/config";
 import { ConflictException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { createHash } from "crypto";
-import { DeleteResult, FindConditions, Not, Repository } from "typeorm";
+import { DeleteResult, FindOptionsWhere, Not, Repository } from "typeorm";
 
 import { UserEntity } from "./user.entity";
 import { IUserCreateDto, IUserUpdateDto, UserRole, UserStatus } from "./interfaces";
@@ -16,7 +16,7 @@ export class UserService {
     private readonly configService: ConfigService,
   ) {}
 
-  public findOne(where: FindConditions<UserEntity>): Promise<UserEntity | undefined> {
+  public findOne(where: FindOptionsWhere<UserEntity>): Promise<UserEntity | null> {
     return this.userEntityRepository.findOne({ where });
   }
 
@@ -24,7 +24,7 @@ export class UserService {
     return this.userEntityRepository.findAndCount();
   }
 
-  public async getByCredentials(email: string, password: string): Promise<UserEntity | undefined> {
+  public async getByCredentials(email: string, password: string): Promise<UserEntity | null> {
     return this.userEntityRepository.findOne({
       where: {
         email,
@@ -64,10 +64,10 @@ export class UserService {
     return userEntity.save();
   }
 
-  public async update(where: FindConditions<UserEntity>, dto: Partial<IUserUpdateDto>): Promise<UserEntity> {
+  public async update(where: FindOptionsWhere<UserEntity>, dto: Partial<IUserUpdateDto>): Promise<UserEntity> {
     const { email, ...rest } = dto;
 
-    const userEntity = await this.userEntityRepository.findOne(where);
+    const userEntity = await this.userEntityRepository.findOne({ where });
 
     if (!userEntity) {
       throw new NotFoundException("userNotFound");
@@ -94,7 +94,7 @@ export class UserService {
     }
   }
 
-  public delete(where: FindConditions<UserEntity>): Promise<DeleteResult> {
+  public delete(where: FindOptionsWhere<UserEntity>): Promise<DeleteResult> {
     return this.userEntityRepository.delete(where);
   }
 }

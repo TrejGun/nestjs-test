@@ -23,7 +23,7 @@ export class UserController {
 
   @Get("/:id")
   @Roles(UserRole.ADMIN)
-  public findOne(@Param("id") id: number): Promise<UserEntity | undefined> {
+  public findOne(@Param("id") id: number): Promise<UserEntity | null> {
     return this.userService.findOne({ id });
   }
 
