@@ -1,6 +1,5 @@
 import { SnakeNamingStrategy } from "typeorm-naming-strategies";
 import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";
-import { DataSource } from "typeorm";
 
 import { ns } from "./common/constants";
 
@@ -40,13 +39,6 @@ const config: PostgresConnectionOptions = {
     CreateTokenTable1570556116332,
     CreateAuthTable1572880566396,
   ],
-  cli: {
-    // Location of migration should be inside server folder
-    // to be compiled into dist/ folder.
-    migrationsDir: "server/migrations",
-  },
 };
 
 export default config;
-
-export const dataSource = new DataSource(config);

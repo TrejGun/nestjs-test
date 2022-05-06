@@ -81,7 +81,7 @@ export class AuthService {
 
     return {
       accessToken: this.jwtService.sign({ email: userEntity.email }, { expiresIn: accessTokenExpiresIn }),
-      refreshToken: refreshToken,
+      refreshToken,
       accessTokenExpiresAt: date.getTime() + accessTokenExpiresIn * 1000,
       refreshTokenExpiresAt: date.getTime() + refreshTokenExpiresIn * 1000,
     };
