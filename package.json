@@ -24,7 +24,7 @@
     "swagger-ui-express": "4.5.0",
     "typeorm": "0.3.10",
     "typeorm-naming-strategies": "4.1.0",
-    "uuid": "8.3.2"
+    "uuid": "9.0.0"
   },
   "devDependencies": {
     "@gemunion/cross-env": "0.0.4",
