@@ -1,4 +1,13 @@
 {
   "extends": ["github>gemunion/renovate-config"],
-  "baseBranches": ["main"]
+  "baseBranches": ["main"],
+  "packageRules": [
+    {
+      "updateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": true
+    }
+  ]
 }
