@@ -1,6 +1,6 @@
 import { Test, TestingModule } from "@nestjs/testing";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Logger } from "@nestjs/common";
+import { Logger, ConflictException } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { v4 } from "uuid";
 
@@ -51,16 +51,14 @@ describe("UserService", () => {
   describe("create", () => {
     it("create user (ConflictException)", async () => {
       const entities = await userSeedService.setup();
-      return userService
-        .create(generateUserCreateDto({ email: entities.users[0].email }))
-        .then(() => fail(new Error()))
-        .catch(e => {
-          expect(e.status).toEqual(409);
-        });
+      await expect(userService.create(generateUserCreateDto({ email: entities.users[0].email }))).rejects.toThrow(
+        ConflictException,
+      );
     });
 
-    it("create user", () => {
-      return userService.create(generateUserCreateDto());
+    it("create user", async () => {
+      const userEntity = await userService.create(generateUserCreateDto());
+      expect(userEntity).toBeDefined();
     });
   });
 
