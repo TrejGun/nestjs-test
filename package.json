@@ -21,7 +21,7 @@
     "passport-jwt": "4.0.1",
     "pg": "8.16.3",
     "rxjs": "7.8.2",
-    "typeorm": "0.3.25",
+    "typeorm": "0.3.26",
     "typeorm-naming-strategies": "4.1.0",
     "uuid": "11.1.0"
   },
@@ -31,18 +31,18 @@
     "@nestjs/testing": "11.1.6",
     "@types/express": "5.0.3",
     "@types/jest": "30.0.0",
-    "@types/node": "22.17.0",
+    "@types/node": "22.17.2",
     "@types/passport": "1.0.17",
     "@types/passport-jwt": "4.0.1",
     "@types/uuid": "10.0.0",
     "husky": "9.1.7",
     "jest": "30.0.5",
-    "lint-staged": "16.1.2",
+    "lint-staged": "16.1.5",
     "prettier": "3.6.2",
-    "ts-jest": "29.4.0",
+    "ts-jest": "29.4.1",
     "ts-node": "10.9.2",
     "tsc-watch": "7.1.1",
-    "typescript": "5.8.3"
+    "typescript": "5.9.2"
   },
   "engines": {
     "node": ">=12.13"
