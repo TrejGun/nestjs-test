@@ -1,12 +1,10 @@
 import { SnakeNamingStrategy } from "typeorm-naming-strategies";
-import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";
+import { PostgresDataSourceOptions } from "typeorm/driver/postgres/PostgresDataSourceOptions";
 
 import { ns } from "./common/constants";
-
 import { AuthEntity } from "./auth/auth.entity";
 import { UserEntity } from "./user/user.entity";
 import { TokenEntity } from "./token/token.entity";
-
 import { CreateSchema1561991006215 } from "./migrations/1561991006215-create-schema";
 import { CreateUserTable1562222612033 } from "./migrations/1562222612033-create-user-table";
 import { SeedUserTable1563804021014 } from "./migrations/1563804021014-seed-user-table";
@@ -14,8 +12,7 @@ import { CreateTokenTable1570556116332 } from "./migrations/1570556116332-create
 import { CreateAuthTable1572880566396 } from "./migrations/1572880566396-create-auth-table";
 
 // Check typeORM documentation for more information.
-const config: PostgresConnectionOptions = {
-  name: "default",
+const config: PostgresDataSourceOptions = {
   type: "postgres",
   url: process.env.POSTGRES_URL,
   entities: [AuthEntity, TokenEntity, UserEntity],

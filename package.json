@@ -22,8 +22,7 @@
     "pg": "8.23.1",
     "rxjs": "7.8.2",
     "typeorm": "1.1.1",
-    "typeorm-naming-strategies": "4.1.0",
-    "uuid": "14.0.2"
+    "typeorm-naming-strategies": "4.1.0"
   },
   "devDependencies": {
     "@ethberry/cross-env": "0.0.5",
@@ -44,7 +43,7 @@
     "typescript": "5.9.3"
   },
   "engines": {
-    "node": ">=12.13"
+    "node": ">=20.19"
   },
   "license": "MIT",
   "main": "./dist/index.js",

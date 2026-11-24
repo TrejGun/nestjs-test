@@ -21,6 +21,6 @@ export class UserSeedService {
   }
 
   public async tearDown(): Promise<void> {
-    await this.userEntityRepository.delete({});
+    await this.userEntityRepository.deleteAll();
   }
 }
