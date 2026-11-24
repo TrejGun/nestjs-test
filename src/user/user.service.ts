@@ -1,7 +1,8 @@
+import { createHash } from "crypto";
+
 import { ConfigService } from "@nestjs/config";
 import { ConflictException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { createHash } from "crypto";
 import { DeleteResult, FindOptionsWhere, Not, Repository } from "typeorm";
 
 import { UserEntity } from "./user.entity";
@@ -20,7 +21,7 @@ export class UserService {
     return this.userEntityRepository.findOne({ where });
   }
 
-  public findAndCount(): Promise<[Array<UserEntity>, number]> {
+  public findAndCount(): Promise<[UserEntity[], number]> {
     return this.userEntityRepository.findAndCount();
   }
 

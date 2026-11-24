@@ -15,6 +15,6 @@ export interface IUser {
   lastName: string;
   email: string;
   password: string;
-  roles: Array<UserRole>;
+  roles: UserRole[];
   status: UserStatus;
 }

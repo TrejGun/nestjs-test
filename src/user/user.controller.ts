@@ -17,7 +17,7 @@ export class UserController {
 
   @Get("/")
   @Roles(UserRole.ADMIN)
-  public findAll(): Promise<{ rows: Array<UserEntity>; count: number }> {
+  public findAll(): Promise<{ rows: UserEntity[]; count: number }> {
     return this.userService.findAndCount().then(([rows, count]) => ({ rows, count }));
   }
 

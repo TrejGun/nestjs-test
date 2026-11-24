@@ -32,5 +32,5 @@ export class UserUpdateDto implements IUserUpdateDto {
     isArray: true,
   })
   @IsEnum(UserRole, { each: true })
-  public userRoles: Array<UserRole>;
+  public userRoles: UserRole[];
 }
