@@ -4,7 +4,7 @@ import { BadRequestException, Injectable, ValidationError, ValidationPipe } from
 export class CustomValidationPipe extends ValidationPipe {
   constructor() {
     super({
-      exceptionFactory: (errors: Array<ValidationError>): BadRequestException => new BadRequestException(errors),
+      exceptionFactory: (errors: ValidationError[]): BadRequestException => new BadRequestException(errors),
       transform: true,
       forbidUnknownValues: true,
     });
