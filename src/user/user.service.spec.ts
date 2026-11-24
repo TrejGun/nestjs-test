@@ -1,8 +1,9 @@
+import { randomUUID } from "crypto";
+
 import { Test, TestingModule } from "@nestjs/testing";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { Logger, ConflictException } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
-import { v4 } from "uuid";
 
 import { generateUserCreateDto } from "../common/test";
 import { DatabaseModule } from "../database/database.module";
@@ -65,7 +66,7 @@ describe("UserService", () => {
   describe("update", () => {
     it("should update email", async () => {
       const entities = await userSeedService.setup();
-      const email = `trejgun+${v4()}@gmail.com`;
+      const email = `trejgun+${randomUUID()}@gmail.com`;
       const userEntity = await userService.update({ id: entities.users[0].id }, { email });
       expect(userEntity.email).toEqual(email);
       expect(userEntity.status).toEqual(UserStatus.PENDING);

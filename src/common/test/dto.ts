@@ -1,4 +1,4 @@
-import { v4 } from "uuid";
+import { randomUUID } from "crypto";
 
 import { IUserCreateDto } from "../../user/interfaces";
 
@@ -10,7 +10,7 @@ export const generateUserCreateDto = (data: Partial<IUserCreateDto> = {}): IUser
       captcha: "DoesNotMatter",
       firstName: "Trej",
       lastName: "Gun",
-      email: `trejgun+${v4()}@gmail.com`,
+      email: `trejgun+${randomUUID()}@gmail.com`,
     },
     data,
   );
